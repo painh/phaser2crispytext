@@ -15,15 +15,20 @@ class Game {
         this.game.renderer.renderSession.roundPixels = true;
     }
     create() {
-        this.ct = new CrispyText(this.game, 32, 48, "helloworld 안녕하세요", "12px", "#ffffff");
-        const text = this.game.add.text(32, 32, "helloworld 안녕하세요", {
+        this.ct = new CrispyText(this.game, 0, 48, "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파", "12px", "#ffffff");
+        const text = this.game.add.text(0, 32, "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파", {
             font: "12px",
             fill: "#ffffff",
         });
-        text.smoothed = true;
+        {
+            const text = this.game.add.text(0, 64, "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파", {
+                font: "12px Spoqa Han Sans",
+                fill: "#ffffff",
+            });
+            const ct2 = new CrispyText(this.game, 0, 80, "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파", "12px Spoqa Han Sans", "#ffffff");
+        }
     }
-    update() {
-    }
+    update() { }
     render() {
         this.game.debug.text(this.game.time.fps.toString(), 2, 14, "#00ff00");
     }

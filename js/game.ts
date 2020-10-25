@@ -20,6 +20,7 @@ class Game {
   init() {
     this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
     this.game.renderer.renderSession.roundPixels = true;
+    this.game.stage.smoothed = false;
   }
 
   create() {

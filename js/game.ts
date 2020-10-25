@@ -6,13 +6,21 @@ class Game {
   ct: CrispyText;
 
   constructor() {
-    this.game = new Phaser.Game(256 * 2, 16 * 10 * 2, Phaser.AUTO, "game", {
-      preload: () => this.preload(),
-      init: () => this.init(),
-      create: () => this.create(),
-      update: () => this.update(),
-      render: () => this.render(),
-    });
+    this.game = new Phaser.Game(
+      256,
+      16 * 10,
+      Phaser.AUTO,
+      "game",
+      {
+        preload: () => this.preload(),
+        init: () => this.init(),
+        create: () => this.create(),
+        update: () => this.update(),
+        render: () => this.render(),
+      },
+      false,
+      false
+    );
   }
 
   preload() {}
@@ -24,7 +32,7 @@ class Game {
   }
 
   create() {
-    const size = 24;
+    const size = 12;
     let ypos = 0;
     this.ct = new CrispyText(
       this.game,

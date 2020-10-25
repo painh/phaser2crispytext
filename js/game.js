@@ -1,13 +1,13 @@
 class Game {
     constructor() {
         this.frame = 0;
-        this.game = new Phaser.Game(256 * 2, 16 * 10 * 2, Phaser.AUTO, "game", {
+        this.game = new Phaser.Game(256, 16 * 10, Phaser.AUTO, "game", {
             preload: () => this.preload(),
             init: () => this.init(),
             create: () => this.create(),
             update: () => this.update(),
             render: () => this.render(),
-        });
+        }, false, false);
     }
     preload() { }
     init() {
@@ -16,7 +16,7 @@ class Game {
         this.game.stage.smoothed = false;
     }
     create() {
-        const size = 24;
+        const size = 12;
         let ypos = 0;
         this.ct = new CrispyText(this.game, 0, (ypos += size), "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파", `${size}px`, "#ffffff");
         const text = this.game.add.text(0, (ypos += size), "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파", {

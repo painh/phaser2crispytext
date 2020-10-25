@@ -1,10 +1,12 @@
+import { FacebookInstantGamesLeaderboard } from "phaser";
+
 class Game {
   game: Phaser.Game;
   frame: number = 0;
   ct: CrispyText;
 
   constructor() {
-    this.game = new Phaser.Game(256, 16 * 10, Phaser.AUTO, "game", {
+    this.game = new Phaser.Game(256 * 2, 16 * 10 * 2, Phaser.AUTO, "game", {
       preload: () => this.preload(),
       init: () => this.init(),
       create: () => this.create(),
@@ -21,33 +23,59 @@ class Game {
   }
 
   create() {
+    const size = 24;
+    let ypos = 0;
     this.ct = new CrispyText(
       this.game,
       0,
-      48,
+      (ypos += size),
       "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파",
-      "12px",
+      `${size}px`,
       "#ffffff"
     );
 
-    const text = this.game.add.text(0, 32, "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파", {
-      font: "12px",
-      fill: "#ffffff",
-      // fontStyle: "bold",
-    });
+    const text = this.game.add.text(
+      0,
+      (ypos += size),
+      "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파",
+      {
+        font: `${size}px`,
+        fill: "#ffffff",
+        // fontStyle: "bold",
+      }
+    );
+    const font = ` ${size}px`;
 
     {
-      const text = this.game.add.text(0, 64, "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파", {
-        font: "12px Spoqa Han Sans",
-        fill: "#ffffff",
-      });
+      const text = this.game.add.text(
+        0,
+        (ypos += size),
+        "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파",
+        {
+          font: font,
+          fill: "#ffffff",
+        }
+      );
 
       const ct2 = new CrispyText(
         this.game,
         0,
-        80,
+        (ypos += size),
         "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파",
-        "12px Spoqa Han Sans",
+        font,
+        "#ffffff",
+        150
+      );
+    }
+
+    {
+      const ct2 = new CrispyText2(
+        this.game,
+        0,
+        (ypos += size),
+        "helloworld 안녕하세요 다람쥐 헌 쳇바퀴에 타고파",
+        "",
+        size,
         "#ffffff"
       );
     }
